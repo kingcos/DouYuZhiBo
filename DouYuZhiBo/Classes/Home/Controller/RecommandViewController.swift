@@ -9,63 +9,84 @@
 
 import UIKit
 
-class RecommandViewController: UIViewController {
+class RecommandViewController: BaseAnchorViewController {
     
-    lazy var collectionView: UICollectionView = { [weak self] in
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: RECOMMAND_CELL_WIDTH, height: RECOMMAND_CELL_HEIGHT)
-        layout.minimumLineSpacing = 0.0
-        layout.minimumInteritemSpacing = RECOMMAND_CELL_MARGIN
-        layout.sectionInset = UIEdgeInsetsMake(0.0, RECOMMAND_CELL_MARGIN, 0.0, RECOMMAND_CELL_MARGIN)
-        layout.headerReferenceSize = CGSize(width: SCREEN_WIDTH, height: RECOMMAND_CELL_HEADER_HEIGHT)
-
-        let view = UICollectionView(frame: self!.view.bounds, collectionViewLayout: layout)
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        view.dataSource = self
-        
-        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: RECOMMAND_COLLECTION_VIEW_IDENTIFIER)
-        view.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: RECOMMAND_HEADER_VIEW_IDENTIFIER)
+    lazy var recommandVM = RecommandViewModel()
+    
+    lazy var recommandRecycleView: RecommandRecycleView = {
+        let view = RecommandRecycleView.create()
+        view.frame = CGRect(x: 0.0,
+                            y: -(RECOMMAND_RECYCLE_VIEW_HEIGHT + RECOMMAND_GAME_VIEW_HEIGHT),
+                            width: SCREEN_WIDTH,
+                            height: RECOMMAND_RECYCLE_VIEW_HEIGHT)
+        return view
+    }()
+    lazy var recommandGameView: RecommandGameView = {
+        let view = RecommandGameView.create()
+        view.frame = CGRect(x: 0.0,
+                            y: -RECOMMAND_GAME_VIEW_HEIGHT,
+                            width: SCREEN_WIDTH,
+                            height: RECOMMAND_GAME_VIEW_HEIGHT)
         return view
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupUI()
-    }
 }
 
 extension RecommandViewController {
-    func setupUI() {
-        view.addSubview(collectionView)
+    override func setupUI() {
+        super.setupUI()
         
+        collectionView.addSubview(recommandRecycleView)
+        collectionView.addSubview(recommandGameView)
         
+        collectionView.contentInset = UIEdgeInsets(top: RECOMMAND_RECYCLE_VIEW_HEIGHT + RECOMMAND_GAME_VIEW_HEIGHT,
+                                                   left: 0.0, bottom: 0.0, right: 0.0)
+    }
+    
+    override func loadData() {
+        baseVM = recommandVM
+        
+        // 闭包对控制器有强引用，控制器对对象有强引用，但对象对闭包没有强引用
+        recommandVM.requestRecommandData {// [weak self] in
+            self.collectionView.reloadData()
+            
+            var groups = self.recommandVM.anchorGroups
+            groups.removeFirst()
+            groups.removeFirst()
+            
+            let moreGroup = AnchorGroup()
+            moreGroup.tag_name = "更多"
+            groups.append(moreGroup)
+            
+            self.recommandGameView.games = groups
+            
+            self.didLoadData()
+        }
+        
+        recommandVM.requestRecycleData {
+            self.recommandRecycleView.recycleModels = self.recommandVM.recycleModels
+        }
     }
 }
 
-extension RecommandViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12
+extension RecommandViewController: UICollectionViewDelegateFlowLayout {
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RECOMMAND_YANZHI_CELL_IDENTIFIER, for: indexPath) as! YanZhiCollectionCell
+            cell.anchor = recommandVM.anchorGroups[indexPath.section].anchors[indexPath.row]
+            return cell
+        } else {
+            return super.collectionView(collectionView, cellForItemAt: indexPath)
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 8
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 1 {
+            return CGSize(width: RECOMMAND_CELL_WIDTH, height: RECOMMAND_YANZHI_CELL_HEIGHT)
         }
         
-        return 4
+        return CGSize(width: RECOMMAND_CELL_WIDTH, height: RECOMMAND_NORMAL_CELL_HEIGHT)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RECOMMAND_COLLECTION_VIEW_IDENTIFIER, for: indexPath)
-        cell.backgroundColor = .red
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: RECOMMAND_HEADER_VIEW_IDENTIFIER, for: indexPath)
-        headerView.backgroundColor = .green
-        return headerView
-    }
 }

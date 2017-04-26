@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="YanZhiCollectionCell" customModule="DouYuZhiBo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="283" height="276"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="283" height="276"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="live_cell_default_phone_103x103_" translatesAutoresizingMaskIntoConstraints="NO" id="NAZ-No-pym">
+                        <rect key="frame" x="0.0" y="0.0" width="283" height="243"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="萌面大道" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5d-JA-6np">
+                        <rect key="frame" x="5" y="248" width="53.5" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="3Sw-PV-pxh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsj-VK-QoT">
+                        <rect key="frame" x="231" y="5" width="47" height="16"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="egE-DN-RtY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="5.2 万" image="Image_online_16x16_"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lid-sC-S9H">
+                        <rect key="frame" x="63.5" y="248" width="214.5" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="JTf-U9-fgJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="洛阳市" image="dyla_ico_location_12x12_">
+                            <color key="titleColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="R5d-JA-6np" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="5gt-6d-TpR"/>
+                <constraint firstItem="R5d-JA-6np" firstAttribute="top" secondItem="NAZ-No-pym" secondAttribute="bottom" constant="5" id="G8Y-hl-9zk"/>
+                <constraint firstItem="Lid-sC-S9H" firstAttribute="leading" secondItem="R5d-JA-6np" secondAttribute="trailing" constant="5" id="PHf-Xn-LfW"/>
+                <constraint firstAttribute="trailing" secondItem="Tsj-VK-QoT" secondAttribute="trailing" constant="5" id="U62-48-ChG"/>
+                <constraint firstAttribute="trailing" secondItem="NAZ-No-pym" secondAttribute="trailing" id="Ugy-SJ-z1s"/>
+                <constraint firstItem="NAZ-No-pym" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="c55-8q-XKk"/>
+                <constraint firstAttribute="bottom" secondItem="Lid-sC-S9H" secondAttribute="bottom" constant="10" id="czQ-05-7hA"/>
+                <constraint firstItem="Tsj-VK-QoT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="gdg-0f-lWr"/>
+                <constraint firstItem="NAZ-No-pym" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="h5G-RK-GdB"/>
+                <constraint firstItem="Lid-sC-S9H" firstAttribute="top" secondItem="NAZ-No-pym" secondAttribute="bottom" constant="5" id="iAS-D4-mOV"/>
+                <constraint firstAttribute="bottom" secondItem="R5d-JA-6np" secondAttribute="bottom" constant="10" id="kBK-Wb-rmw"/>
+                <constraint firstAttribute="trailing" secondItem="Lid-sC-S9H" secondAttribute="trailing" constant="5" id="ww4-t7-tnT"/>
+            </constraints>
+            <size key="customSize" width="283" height="276"/>
+            <connections>
+                <outlet property="cityButton" destination="Lid-sC-S9H" id="eLa-6e-g7T"/>
+                <outlet property="mainImageView" destination="NAZ-No-pym" id="NVl-dD-OcB"/>
+                <outlet property="nicknameLabel" destination="R5d-JA-6np" id="xAQ-Ef-rzf"/>
+                <outlet property="onlineButton" destination="Tsj-VK-QoT" id="1eM-UI-9c1"/>
+            </connections>
+            <point key="canvasLocation" x="-12.5" y="47"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Image_online_16x16_" width="16" height="16"/>
+        <image name="dyla_ico_location_12x12_" width="12" height="12"/>
+        <image name="live_cell_default_phone_103x103_" width="103" height="103"/>
+    </resources>
+</document>

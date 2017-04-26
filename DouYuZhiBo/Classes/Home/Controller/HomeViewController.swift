@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     
     lazy var pageTitleView: PageTitleView = { [weak self] in
         let frame = CGRect(x: 0.0, y: STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT, width: SCREEN_WIDTH, height: TITLE_VIEW_HEIGHT)
-        let titles = ["推荐", "手游", "娱乐", "游戏", "趣玩"]
+        let titles = ["推荐", "游戏", "娱乐", "趣玩"]
         let view = PageTitleView(frame: frame, titles: titles)
         view.delegate = self
         return view
@@ -26,11 +26,9 @@ class HomeViewController: UIViewController {
         var childVCs = [UIViewController]()
         
         childVCs.append(RecommandViewController())
-        for _ in 0..<4 {
-            let vc = UIViewController()
-            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
-            childVCs.append(vc)
-        }
+        childVCs.append(GameViewController())
+        childVCs.append(EntertainmentViewController())
+        childVCs.append(FunViewController())
         
         let view = PageContentView(frame: viewFrame, childVCs: childVCs, parentVC: self)
         view.delegate = self

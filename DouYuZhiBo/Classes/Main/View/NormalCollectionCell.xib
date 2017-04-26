@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NormalCollectionCell" customModule="DouYuZhiBo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="253" height="175"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="253" height="175"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="Img_default_172x103_" translatesAutoresizingMaskIntoConstraints="NO" id="RaA-iX-frZ">
+                        <rect key="frame" x="0.0" y="0.0" width="253" height="146"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maimieng.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSj-RO-gsQ">
+                        <rect key="frame" x="5" y="127.5" width="76.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="github.com/kingcos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0O-bl-Qu3">
+                        <rect key="frame" x="5" y="151" width="243" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="LQc-6k-H5a"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2s-PM-Uba">
+                        <rect key="frame" x="201" y="5" width="47" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="5.2 万" image="Image_online_16x16_"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="RaA-iX-frZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7fx-hg-Nv9"/>
+                <constraint firstAttribute="trailing" secondItem="RaA-iX-frZ" secondAttribute="trailing" id="Atx-nQ-q66"/>
+                <constraint firstAttribute="bottom" secondItem="w0O-bl-Qu3" secondAttribute="bottom" constant="10" id="BRI-PK-oll"/>
+                <constraint firstAttribute="trailing" secondItem="w0O-bl-Qu3" secondAttribute="trailing" constant="5" id="F20-Uc-LMa"/>
+                <constraint firstItem="R2s-PM-Uba" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="HnN-tF-t9A"/>
+                <constraint firstItem="xSj-RO-gsQ" firstAttribute="bottom" secondItem="RaA-iX-frZ" secondAttribute="bottom" constant="-5" id="K4l-0T-qhQ"/>
+                <constraint firstItem="w0O-bl-Qu3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="XLp-Bt-IP6"/>
+                <constraint firstItem="xSj-RO-gsQ" firstAttribute="leading" secondItem="RaA-iX-frZ" secondAttribute="leading" constant="5" id="rNK-Kh-ntc"/>
+                <constraint firstAttribute="trailing" secondItem="R2s-PM-Uba" secondAttribute="trailing" constant="5" id="vHh-5K-MCr"/>
+                <constraint firstItem="RaA-iX-frZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ypP-0g-5qc"/>
+                <constraint firstItem="w0O-bl-Qu3" firstAttribute="top" secondItem="RaA-iX-frZ" secondAttribute="bottom" constant="5" id="zQv-4m-rhH"/>
+            </constraints>
+            <size key="customSize" width="220" height="128"/>
+            <connections>
+                <outlet property="mainImageView" destination="RaA-iX-frZ" id="b9c-zN-tmK"/>
+                <outlet property="nicknameLabel" destination="xSj-RO-gsQ" id="BS1-D7-8VL"/>
+                <outlet property="onlineButton" destination="R2s-PM-Uba" id="1Gr-vV-bUS"/>
+                <outlet property="roomNameLabel" destination="w0O-bl-Qu3" id="neY-rw-oAC"/>
+            </connections>
+            <point key="canvasLocation" x="17.5" y="82.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Image_online_16x16_" width="16" height="16"/>
+        <image name="Img_default_172x103_" width="172" height="103"/>
+    </resources>
+</document>

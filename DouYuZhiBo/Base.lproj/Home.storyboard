@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +30,7 @@
         <!--首页-->
         <scene sceneID="NEY-d2-L5G">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bZ9-0x-vaq" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bZ9-0x-vaq" customClass="CustomNavigationController" customModule="DouYuZhiBo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="tabHome_24x24_" selectedImage="tabHomeHL_24x24_" id="ncj-zN-N9E"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
